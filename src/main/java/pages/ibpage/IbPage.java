@@ -3,6 +3,7 @@ package pages.ibpage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
 
@@ -14,16 +15,14 @@ public class IbPage extends BasePage {
 
     private final By login = By.id("loginInput");
     private final By password = By.id("passInput");
-    private final By docbook = By.xpath("//a[@tutorial-data = 'document_nav']");
 
     public IbPage authorization (String s_login,  String s_password) {
-        driver.findElement(login).sendKeys(s_login);
-        driver.findElement(password).sendKeys(s_password, Keys.ENTER);
+        WebElement welogin = driver.findElement(login);
+        waitElementIsVisible(welogin).sendKeys(s_login);
+        WebElement wepassword = driver.findElement(password);
+        waitElementIsVisible(wepassword).sendKeys(s_password , Keys.ENTER);
         return this;
     }
+//11
 
-    public IbPage openDocBook () {
-        driver.findElement(docbook).click();
-        return this;
-    }
 }
