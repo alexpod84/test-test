@@ -10,7 +10,7 @@ public class DocBook extends BasePage {
     public DocBook (WebDriver driver) {super(driver); }
 
     private final By createBtn = By.xpath("//button[text()='Создать']");
-    private final By payDocBy = By.xpath(" //sc-modal[8]/div/sc-modal-body/div/div[1]/div[2]");
+    private final By payDocBy = By.xpath("//sc-modal-body//span[text()='101 - Платежное поручение']");
     private final By docbook = By.xpath("//a[@tutorial-data = 'document_nav']");
     public DocBook openDocBook () {
         WebElement weDocBook = driver.findElement(docbook);
