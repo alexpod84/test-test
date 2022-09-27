@@ -27,9 +27,5 @@ public class CommonActions {
         return driver;
     }
 
-    public static class Config {
-        public static class TimeOutVariable{
-            public static final int IMPLICIT_WAIT = 4;
-        }
-    }
+
 }

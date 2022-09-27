@@ -23,11 +23,16 @@ public class BasePage {
 
     public WebElement waitElementIsVisible(WebElement element){
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         return element;
     }
 
     public WebElement waitElementToBeClickable(WebElement element){
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.elementToBeClickable(element));
         return element;
+    }
+
+    public void driverPause (Integer t){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(t));
     }
 }
