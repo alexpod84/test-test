@@ -3,25 +3,13 @@ package tests.ibtest;
 //Страница тестов
 
 //import org.junit.Test;
-import io.qameta.allure.Step;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.ibpage.IbPage;
 import tests.base.BaseTest;
 
 
-import java.time.Duration;
-
-import static constants.Constant.Urls.TEST_URL;
-import static constants.Constant.Urls.PROD_URL;
-import static constants.Constant.logpass.LOGIN_TEST;
-import static constants.Constant.logpass.PASSWORD_TEST;
-import static constants.Constant.logpass.LOGIN_PROD;
-import static constants.Constant.logpass.PASSWORD_PROD;
+import static pages.base.constants.Constant.Urls.TEST_URL;
+import static pages.base.constants.Constant.logpass.LOGIN_TEST;
+import static pages.base.constants.Constant.logpass.PASSWORD_TEST;
 
 public class SignUp extends BaseTest {
 

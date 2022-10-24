@@ -6,10 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import static common.Config.PLATFORM_AND_BROWSER;
-import static constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
+import static pages.base.constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
 
 public class CommonActions {
     public static WebDriver createDriver () {

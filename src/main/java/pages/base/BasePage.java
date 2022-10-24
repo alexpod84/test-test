@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
+import static pages.base.constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
 
 public class BasePage {
     protected WebDriver driver;
