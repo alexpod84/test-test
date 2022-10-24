@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test name="E:/Trainings/TestProjects/test-test">
         <classes>
-            <class name="tests.ibtest.SignUp"></class>
+            <class name="tests.ibtest.SignUp"/>
         </classes>
     </test>
 </suite>

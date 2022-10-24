@@ -25,19 +25,24 @@ import static constants.Constant.logpass.PASSWORD_PROD;
 
 public class SignUp extends BaseTest {
 
+    @Test
+    public void testMvn(){
+        System.out.println("check maven");
+    }
+
 
     @Test(priority = 1, description = "Вход")
    // @Step ("Авторизация")
-    public void authorization() {
+  public void authorization() {
 
-        basePage.open(PROD_URL);
+        basePage.open(TEST_URL);
 
 
         ibPage
-                .authorization(LOGIN_PROD, PASSWORD_PROD);
+                .authorization(LOGIN_TEST, PASSWORD_TEST);
 
     }
-    @Test(priority = 2, description = "Открытие платежного поручения")
+     @Test(priority = 2, description = "Открытие платежного поручения")
 
   //  @Step ("Открытие списка документов и пп")
     public void openDocBook() {
