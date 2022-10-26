@@ -1,5 +1,6 @@
 package pages.ibpage;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -51,7 +52,7 @@ public class PayDocBy extends BasePage {
 
 
         public PayDocBy (WebDriver driver) {super(driver); }
-
+        @Step ("Ввод данных обычной платежки")
         public PayDocBy inputData () throws InterruptedException {
                 WebElement weinamount = driver.findElement(inamount);
                 waitElementIsVisible(weinamount).sendKeys("1");
@@ -93,6 +94,7 @@ public class PayDocBy extends BasePage {
                 waitElementIsVisible(wetransferNotesCode).click();
                 return this;
         }
+        @Step("Сохранить")
 
         public PayDocBy sendForm (){
                 WebElement webtnSave = driver.findElement(btnSave);

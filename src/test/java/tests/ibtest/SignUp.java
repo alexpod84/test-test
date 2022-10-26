@@ -20,7 +20,7 @@ public class SignUp extends BaseTest {
 
 
     @Test(priority = 1, description = "Вход")
-   // @Step ("Авторизация")
+
   public void authorization() {
 
         basePage.open(TEST_URL);
