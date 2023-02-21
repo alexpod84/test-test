@@ -1,10 +1,14 @@
 package pages.base;
 
-
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.logging.*;
+
 
 import java.time.Duration;
 
@@ -19,6 +23,8 @@ public class BasePage {
 
     public void open(String url) {
         driver.get(url);
+
+
     }
 
     public WebElement waitElementIsVisible(WebElement element){

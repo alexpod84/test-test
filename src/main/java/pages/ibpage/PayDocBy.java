@@ -1,13 +1,12 @@
 package pages.ibpage;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 import pages.base.BasePage;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -54,6 +53,7 @@ public class PayDocBy extends BasePage {
         public PayDocBy (WebDriver driver) {super(driver); }
         @Step ("Ввод данных обычной платежки")
         public PayDocBy inputData () throws InterruptedException {
+            try {
                 WebElement weinamount = driver.findElement(inamount);
                 waitElementIsVisible(weinamount).sendKeys("1");
                 WebElement wepayerTypecb = driver.findElement(payerTypecb);
@@ -92,6 +92,13 @@ public class PayDocBy extends BasePage {
                 waitElementIsVisible(wetransferNotesCodeCl).click();
                 WebElement wetransferNotesCode = driver.findElement(transferNotesCode);
                 waitElementIsVisible(wetransferNotesCode).click();
+            }
+            catch (NoSuchElementException e)
+            {
+                Assert.fail("Ошибка нахождения элемента : " + e.toString());
+            }
+
+
                 return this;
         }
         @Step("Сохранить")
