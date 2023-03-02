@@ -5,11 +5,8 @@ package tests.ibtest;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
+import static common.Config.*;
 
-
-import static pages.base.constants.Constant.Urls.TEST_URL;
-import static pages.base.constants.Constant.logpass.LOGIN_TEST;
-import static pages.base.constants.Constant.logpass.PASSWORD_TEST;
 
 public class SignUp extends BaseTest {
 
@@ -23,11 +20,11 @@ public class SignUp extends BaseTest {
 
   public void authorization() {
 
-        basePage.open(TEST_URL);
+        basePage.open(URL);
 
 
         ibPage
-                .authorization(LOGIN_TEST, PASSWORD_TEST);
+                .authorization(LOGIN, PASSWORD);
 
     }
      @Test(priority = 2, description = "Открытие платежного поручения")

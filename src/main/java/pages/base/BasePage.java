@@ -12,7 +12,8 @@ import org.openqa.selenium.logging.*;
 
 import java.time.Duration;
 
-import static pages.base.constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
+//import static pages.base.constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
+import static common.Config.EXPLICIT_WAIT;
 
 public class BasePage {
     protected WebDriver driver;

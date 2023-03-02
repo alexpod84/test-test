@@ -15,8 +15,9 @@ import org.testng.internal.Configuration;
 import java.time.Duration;
 import java.util.logging.Level;
 
-import static common.Config.PLATFORM_AND_BROWSER;
-import static pages.base.constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
+import static common.Config.*;
+
+
 
 public class CommonActions {
     @BeforeSuite
