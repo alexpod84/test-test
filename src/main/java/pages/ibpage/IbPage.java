@@ -10,6 +10,8 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import pages.base.BasePage;
 
+import java.time.Duration;
+import static common.Config.EXPLICIT_WAIT;
 
 public class IbPage extends BasePage {
 
@@ -17,16 +19,20 @@ public class IbPage extends BasePage {
         super(driver);
     }
 
-    private final By login = By.id("loginInput");
-    private final By password = By.id("passInput");
+    private final String login = ".//*[@id='loginInput']";
+    private final String password = " .//*[@id='passInput']";
+    private final String button = ".//button[contains(text(), 'Войти')]";
+   // private final By password = By.id("passInput");
 
     @Step("Авторизация")
     public IbPage authorization (String s_login,  String s_password) {
         try {
-            WebElement welogin = driver.findElement(login);
-            waitElementIsVisible(welogin).sendKeys(s_login);
-            WebElement wepassword = driver.findElement(password);
-            waitElementIsVisible(wepassword).sendKeys(s_password, Keys.ENTER);
+          //  WebElement welogin = driver.findElement(login);
+            findByXpath(login, Duration.ofSeconds(EXPLICIT_WAIT)).sendKeys(s_login);
+            findByXpath(password, Duration.ofSeconds(EXPLICIT_WAIT)).sendKeys(s_password);
+            findByXpath(button, Duration.ofSeconds(EXPLICIT_WAIT)).click();
+           // WebElement wepassword = driver.findElement(password);
+         //   waitElementIsVisible(wepassword).sendKeys(s_password, Keys.ENTER);
 
             LogEntries logs = driver.manage().logs().get(LogType.PERFORMANCE);
 

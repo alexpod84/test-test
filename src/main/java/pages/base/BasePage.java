@@ -1,14 +1,14 @@
 package pages.base;
 
+//import com.sun.jdi.request.DuplicateRequestException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.logging.*;
-
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import java.time.Duration;
 
@@ -28,14 +28,29 @@ public class BasePage {
 
     }
 
-    public WebElement waitElementIsVisible(WebElement element){
-        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        return element;
+    public WebElement findByXpath(String xpath, Duration duration){
+        return driver.findElement(waitElementIsVisible(By.xpath(xpath), duration.getSeconds()));
+
+    }
+
+    public By waitElementIsVisible(By findStategy, long timeInOutSeconds){
+        getWaiter(timeInOutSeconds).until(visibilityOfElementLocated(findStategy));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return findStategy;
+    }
+
+    private WebDriverWait getWaiter(long timeInOutSeconds){
+        WebDriverWait webDriverWait =  new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+        webDriverWait.ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(StaleElementReferenceException.class);
+        return webDriverWait;
     }
 
     public WebElement waitElementToBeClickable(WebElement element){
-        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.elementToBeClickable(element));
+       WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+       webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+      //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         return element;
     }
 

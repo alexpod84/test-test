@@ -25,15 +25,15 @@ public class CommonActions {
         WebDriverManager.chromedriver().setup();
        // DesiredCapabilities capabilities = new DesiredCapabilities()
 
-      /* */ LoggingPreferences preferences = new LoggingPreferences();
+      /* */LoggingPreferences preferences = new LoggingPreferences();
         preferences.enable(LogType.PERFORMANCE, Level.ALL);
         preferences.enable(LogType.BROWSER, Level.ALL);
 
         ChromeOptions option = new ChromeOptions();
-        option.setCapability(CapabilityType.LOGGING_PREFS, preferences);
+       // option.setCapability(CapabilityType.LOGGING_PREFS, preferences);
         option.setCapability("goog:loggingPrefs", preferences);
-        option.addArguments();
-        
+        option.addArguments("--remote-allow-origins=*");
+
         WebDriver driver = null;
 
         switch (PLATFORM_AND_BROWSER){

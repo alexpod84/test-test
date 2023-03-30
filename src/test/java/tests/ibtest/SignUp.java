@@ -27,10 +27,10 @@ public class SignUp extends BaseTest {
                 .authorization(LOGIN, PASSWORD);
 
     }
-     @Test(priority = 2, description = "Открытие платежного поручения")
+    @Test(priority = 2, description = "Открытие платежного поручения")
 
   //  @Step ("Открытие списка документов и пп")
-    public void openDocBook() {
+    public void openDocBook() throws InterruptedException{
         docBook
                 .openDocBook()
                 .openDocList()
@@ -47,7 +47,7 @@ public class SignUp extends BaseTest {
 
     @Test(priority = 4, description = "Сохранение платежного поручения")
   //@Step ("Отправка ПП")
-    public void savePayDocBy() {
+    public void savePayDocBy() throws InterruptedException {
         payDocBy
                 .sendForm();
     }
